@@ -20,7 +20,10 @@
         </ul>
       </nav>
       <div class="copyright">
-        &copy; {{ year }}, made with <md-icon>favorite</md-icon> by Gabriel Paliari
+        &copy; {{ year }}, made with <md-icon>favorite</md-icon> by 
+        <a class="user-github-link" href="https://github.com/GabrielPaliari" target="_blank">
+          Gabriel Paliari
+        </a>
       </div>
     </div>
   </footer>
@@ -38,4 +41,8 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+  .user-github-link {
+    text-decoration: underline !important;
+  }
+</style>
