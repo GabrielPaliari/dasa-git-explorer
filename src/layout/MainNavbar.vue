@@ -32,13 +32,18 @@
                 href="https://github.com/dasa-health/test-nac"
                 target="_blank"
               >
-                <i class="fab fa-github"></i>
-                <p class="hidden-lg">Instagram</p>
-                <md-tooltip md-direction="bottom">
-                  Veja o repositório no github
-                </md-tooltip>
+                <i class="fab fa-github fa-lg"></i>
+                <p>Código</p>
+              </md-list-item>
+              <md-list-item
+                href="https://github.com/dasa-health/test-nac"
+                target="_blank"
+              >
+                <i class="fas fa-book fa-lg"></i>
+                <p>Documentação</p>
               </md-list-item>
             </md-list>
+              
           </div>
         </div>
       </div>
