@@ -9,7 +9,8 @@
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
         <img class="logo-dasa" :src="dasaLogo"/>
-        <h3 class="brand-title">Github Explorer</h3>
+        <h3 class="brand-title">Hub</h3>
+        <h4 class="brand-slogan">The Git Explorer</h4> 
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -17,7 +18,6 @@
           :class="{ toggled: toggledClass }"
           @click="toggleNavbarMobile()"
         >
-          <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </md-button>
@@ -167,7 +167,11 @@ export default {
     width: 120px;
   }
   .brand-title {
+    margin: 20px 10px 10px -12px;
+    font-size: 22px;
+  }
+  .brand-slogan {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 16px;
   }
 </style>

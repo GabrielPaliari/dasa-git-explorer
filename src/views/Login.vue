@@ -8,13 +8,14 @@
             class="md-layout-item md-size-33 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
           >
             <login-card header-color="primary">
-              <h4 slot="title" class="card-title">Entre com o Github:</h4>
+              <h5 slot="title" class="card-title">Entre com o github:</h5>
               <md-button
                 slot="buttons"
                 href="javascript:void(0)"
-                class="md-just-icon md-simple md-white"
+                class="login-btn md-simple md-white md-lg"
               >
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github fa-lg"></i>
+                <span class="login-btn__text">Entrar</span>
               </md-button>
               <p slot="description" class="description">
                 Faça o Login com o github para começar a explorar os repositórios
@@ -69,5 +70,8 @@ export default {
     bottom: 0;
     left: 0;
     background-color: #182792b3;
+  }
+  .login-btn__text {
+    margin-left: 8px;
   }
 </style>
