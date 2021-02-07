@@ -2,9 +2,8 @@
   <md-toolbar
     id="toolbar"
     md-elevation="0"
-    class="md-transparent md-absolute"
-    :class="extraNavClasses"
-    :color-on-scroll="colorOnScroll"
+    class="md-absolute"
+    :class="{ [`md-${type}`]: type }"
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
@@ -18,6 +17,7 @@
           :class="{ toggled: toggledClass }"
           @click="toggleNavbarMobile()"
         >
+          <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </md-button>
@@ -86,10 +86,6 @@ export default {
         ].includes(value);
       }
     },
-    colorOnScroll: {
-      type: Number,
-      default: 0
-    },
     dasaLogo: {
       type: String,
       default: require("@/assets/img/logo-dasa.png")
@@ -97,14 +93,7 @@ export default {
   },
   data() {
     return {
-      extraNavClasses: "",
       toggledClass: false
-    };
-  },
-  computed: {
-    showDownload() {
-      const excludedRoutes = ["login", "landing", "profile"];
-      return excludedRoutes.every(r => r !== this.$route.name);
     }
   },
   methods: {
@@ -128,50 +117,20 @@ export default {
       this.toggledClass = !this.toggledClass;
       this.bodyClick();
     },
-    handleScroll() {
-      let scrollValue =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      let navbarColor = document.getElementById("toolbar");
-      this.currentScrollValue = scrollValue;
-      if (this.colorOnScroll > 0 && scrollValue > this.colorOnScroll) {
-        this.extraNavClasses = `md-${this.type}`;
-        navbarColor.classList.remove("md-transparent");
-      } else {
-        if (this.extraNavClasses) {
-          this.extraNavClasses = "";
-          navbarColor.classList.add("md-transparent");
-        }
-      }
-    },
-    scrollListener() {
-      resizeThrottler(this.handleScroll);
-    },
-    scrollToElement() {
-      let element_id = document.getElementById("downloadSection");
-      if (element_id) {
-        element_id.scrollIntoView({ block: "end", behavior: "smooth" });
-      }
-    }
   },
-  mounted() {
-    document.addEventListener("scroll", this.scrollListener);
-  },
-  beforeDestroy() {
-    document.removeEventListener("scroll", this.scrollListener);
-  }
 };
 </script>
 
 <style lang="css">
   .logo-dasa {
     width: 120px;
+    margin-top: -10px;
   }
   .brand-title {
-    margin: 20px 10px 10px -12px;
+    margin: 10px 10px 10px -12px;
     font-size: 22px;
   }
   .brand-slogan {
-    margin-top: 20px;
     font-size: 16px;
   }
 </style>
